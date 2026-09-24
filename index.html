@@ -431,6 +431,263 @@ h1 .g{color:var(--teal)}
 .item a{color:var(--teal);text-decoration:none;font-weight:600;font-size:14.5px;display:inline-block;margin-top:9px}
 .item a:hover{text-decoration:underline}
 
+/* ---------- experience section ---------- */
+.exp-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:24px;
+}
+@media(max-width:860px){.exp-grid{grid-template-columns:1fr}}
+
+.exp-card{
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:var(--panel);
+  padding:34px 36px;
+  position:relative;
+  overflow:hidden;
+  transition:border-color .25s,background .25s,transform .25s;
+}
+.exp-card:hover{
+  border-color:var(--line-2);
+  background:#13151d;
+  transform:translateY(-4px);
+}
+.exp-card:before{
+  content:"";
+  position:absolute;
+  top:0;left:0;right:0;
+  height:3px;
+  border-radius:18px 18px 0 0;
+}
+.exp-card.type-industry:before{background:linear-gradient(90deg,var(--teal),var(--violet))}
+.exp-card.type-intern:before{background:linear-gradient(90deg,var(--violet),var(--ember))}
+
+.exp-card-glow{
+  position:absolute;
+  pointer-events:none;
+  border-radius:50%;
+  filter:blur(80px);
+  opacity:.1;
+  width:320px;height:320px;
+  top:-80px;right:-80px;
+}
+.exp-card.type-industry .exp-card-glow{background:var(--teal)}
+.exp-card.type-intern .exp-card-glow{background:var(--violet)}
+
+.exp-type-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.09em;
+  text-transform:uppercase;
+  padding:4px 12px;
+  border-radius:999px;
+  border:1px solid;
+  margin-bottom:18px;
+}
+.exp-card.type-industry .exp-type-badge{
+  color:var(--teal);
+  border-color:rgba(43,183,168,.3);
+  background:rgba(43,183,168,.07);
+}
+.exp-card.type-intern .exp-type-badge{
+  color:var(--violet);
+  border-color:rgba(109,91,240,.3);
+  background:rgba(109,91,240,.07);
+}
+.exp-type-badge-dot{
+  width:6px;height:6px;
+  border-radius:50%;
+  flex:none;
+}
+.exp-card.type-industry .exp-type-badge-dot{background:var(--teal)}
+.exp-card.type-intern .exp-type-badge-dot{background:var(--violet)}
+
+.exp-org{
+  display:flex;
+  align-items:flex-start;
+  gap:14px;
+  margin-bottom:6px;
+}
+.exp-org-icon{
+  width:44px;height:44px;
+  border-radius:12px;
+  border:1px solid var(--line-2);
+  background:rgba(255,255,255,.04);
+  display:grid;
+  place-items:center;
+  font-size:18px;
+  flex:none;
+}
+.exp-role{
+  font-family:var(--display);
+  font-size:clamp(18px,2vw,22px);
+  font-weight:700;
+  letter-spacing:-.02em;
+  line-height:1.2;
+  margin:0 0 4px;
+}
+.exp-company{
+  font-size:14px;
+  color:var(--fg-3);
+  font-weight:500;
+}
+.exp-period{
+  font-size:13px;
+  color:var(--fg-3);
+  margin-top:3px;
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+.exp-period-dot{
+  width:4px;height:4px;
+  border-radius:50%;
+  background:var(--fg-3);
+  flex:none;
+}
+.exp-divider{
+  height:1px;
+  background:var(--line);
+  margin:20px 0;
+}
+.exp-bullets{
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:11px;
+}
+.exp-bullets li{
+  position:relative;
+  padding-left:18px;
+  color:var(--fg-2);
+  font-size:14.5px;
+  line-height:1.7;
+}
+.exp-bullets li:before{
+  content:"";
+  position:absolute;
+  left:0;top:10px;
+  width:6px;height:6px;
+  border-radius:50%;
+  border:1.5px solid;
+}
+.exp-card.type-industry .exp-bullets li:before{border-color:var(--teal)}
+.exp-card.type-intern .exp-bullets li:before{border-color:var(--violet)}
+.exp-bullets li strong{color:var(--fg);font-weight:600}
+
+.exp-specs{
+  display:flex;
+  flex-wrap:wrap;
+  gap:0;
+  margin-top:22px;
+  border:1px solid var(--line);
+  border-radius:10px;
+  overflow:hidden;
+  background:rgba(255,255,255,.02);
+}
+.exp-specs div{padding:11px 16px;border-right:1px solid var(--line);flex:1 1 120px}
+.exp-specs div:last-child{border-right:0}
+.exp-specs .ek{font-size:11.5px;color:var(--fg-3)}
+.exp-specs .ev{font-family:var(--display);font-weight:600;font-size:14.5px;letter-spacing:-.01em;margin-top:2px}
+
+.exp-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}
+.exp-links{display:flex;flex-wrap:wrap;gap:18px;margin-top:18px;align-items:center}
+
+/* ---------- completed badge ---------- */
+.exp-completed-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.07em;
+  text-transform:uppercase;
+  padding:3px 10px;
+  border-radius:999px;
+  background:rgba(43,183,168,.12);
+  border:1px solid rgba(43,183,168,.3);
+  color:var(--teal);
+  margin-top:4px;
+  width:fit-content;
+}
+.exp-completed-badge:before{
+  content:"";
+  width:5px;height:5px;
+  border-radius:50%;
+  background:var(--teal);
+  flex:none;
+}
+
+/* ---------- scroll reveal ---------- */
+.reveal{
+  opacity:0;
+  transform:translateY(28px);
+  transition:opacity .55s cubic-bezier(.22,1,.36,1), transform .55s cubic-bezier(.22,1,.36,1);
+}
+.reveal.visible{
+  opacity:1;
+  transform:none;
+}
+.reveal-delay-1{transition-delay:.08s}
+.reveal-delay-2{transition-delay:.16s}
+.reveal-delay-3{transition-delay:.24s}
+.reveal-delay-4{transition-delay:.32s}
+
+/* ---------- shimmer highlight on cards ---------- */
+.exp-card,.pub-card,.stat-card,.skill-card,.edu-card,.repo,.cert{
+  transition:border-color .25s,background .25s,transform .25s,box-shadow .25s;
+}
+.exp-card:hover{
+  box-shadow:0 8px 40px rgba(0,0,0,.35);
+}
+.pub-card:hover{
+  box-shadow:0 8px 40px rgba(0,0,0,.35);
+}
+.stat-card:hover{
+  box-shadow:0 6px 28px rgba(0,0,0,.3);
+}
+
+/* accent rule with gradient animation */
+.rule:before{
+  content:"";
+  width:36px;height:1px;
+  background:linear-gradient(90deg,var(--violet),var(--teal));
+  opacity:1;
+  animation:ruleGrow .6s ease forwards;
+}
+@keyframes ruleGrow{from{width:0}to{width:36px}}
+
+/* section heading underline */
+.head h2{
+  position:relative;
+  display:inline-block;
+}
+
+/* improved link underline hover */
+.gh{
+  position:relative;
+  transition:color .18s;
+}
+
+/* pub card accent shimmer */
+.pub-card:before{
+  background:linear-gradient(90deg,var(--teal),var(--violet),var(--teal));
+  background-size:200%;
+  animation:shimmerBar 4s linear infinite;
+}
+@keyframes shimmerBar{
+  0%{background-position:200% center}
+  100%{background-position:-200% center}
+}
+
+@media(max-width:480px){.exp-card{padding:24px 20px}}
+
 .certs{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:12px}
 @media(max-width:1000px){.certs{grid-template-columns:1fr 1fr 1fr}}
 @media(max-width:700px){.certs{grid-template-columns:1fr 1fr}}
@@ -489,7 +746,8 @@ footer a:hover{color:var(--fg)}
   <nav class="nav">
     <a class="brand" href="#top"><span class="mark">MJ</span> Mitul Jain</a>
     <div class="links">
-      <a href="#research" class="on">Research</a>
+      <a href="#experience" class="on">Experience</a>
+      <a href="#research">Research</a>
       <a href="#work">Work</a>
       <a href="#code">Code</a>
       <a href="#skills">Skills</a>
@@ -506,6 +764,7 @@ footer a:hover{color:var(--fg)}
   </nav>
 </header>
 <div class="mobile-nav" id="mobile-nav">
+  <a href="#experience">Experience</a>
   <a href="#research">Research</a>
   <a href="#work">Work</a>
   <a href="#code">Code</a>
@@ -525,7 +784,7 @@ footer a:hover{color:var(--fg)}
         <span class="status"><span class="dot"></span> Open to AI/ML &amp; software engineering roles</span>
         <h1>I build <span class="g">intelligent software</span> for real-world problems.</h1>
         <p class="lede">I'm Mitul, an AI/ML engineer and software developer focused on turning ideas into practical, end-to-end products. My work spans machine learning, computer vision, generative AI, RAG, agentic workflows, and full-stack development — working across the entire lifecycle from data and model development to APIs, applications, and deployment.</p>
-        <p class="meta"><b>B.Tech CSE (AI &amp; Data Science)</b> · MIT World Peace University, Pune · CGPA 9.13</p>
+        <p class="meta"><b>B.Tech CSE (AI &amp; Data Science)</b> · MIT World Peace University, Pune · CGPA 9.11</p>
         <div class="btns">
           <a class="btn solid" href="#work">See the work</a>
           <a class="btn" href="https://github.com/mituljn14" target="_blank" rel="noopener">GitHub</a>
@@ -543,25 +802,25 @@ footer a:hover{color:var(--fg)}
 <!-- STATS -->
 <div class="wrap">
   <div class="stats">
-    <div class="stat-card">
+    <div class="stat-card reveal reveal-delay-1">
       <div class="stat-tag">Academic</div>
-      <div class="stat-n">9.13</div>
+      <div class="stat-n">9.11</div>
       <div class="stat-label">CGPA</div>
       <div class="stat-sub">B.Tech CSE (AI &amp; Data Science)</div>
     </div>
-    <div class="stat-card">
+    <div class="stat-card reveal reveal-delay-2">
       <div class="stat-tag">Projects</div>
       <div class="stat-n">8+</div>
       <div class="stat-label">Projects Built</div>
       <div class="stat-sub">AI/ML · Computer Vision · GenAI · Software Dev</div>
     </div>
-    <div class="stat-card">
+    <div class="stat-card reveal reveal-delay-3">
       <div class="stat-tag">Research</div>
       <div class="stat-n sm">1 Publication</div>
       <div class="stat-label">Research Publication</div>
       <div class="stat-sub">Int'l Journal of Computing &amp; Digital Systems (IJCDS)</div>
     </div>
-    <div class="stat-card">
+    <div class="stat-card reveal reveal-delay-4">
       <div class="stat-tag">Industry</div>
       <div class="stat-n sm">Tata Technologies</div>
       <div class="stat-label">Industry Collaboration</div>
@@ -570,16 +829,106 @@ footer a:hover{color:var(--fg)}
   </div>
 </div>
 
+<!-- INTERNSHIP & INDUSTRY COLLABORATION -->
+<section id="experience">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="rule">Real-world experience</div>
+      <h2>Internship &amp; Industry Collaboration.</h2>
+      <p>Hands-on work with real companies &mdash; from a completed industry collaboration with Tata Technologies to an ongoing AI internship applying machine learning, computer vision, and agentic AI to real-world problems.</p>
+    </div>
+
+    <div class="exp-grid">
+
+      <!-- Industry Collaboration: Tata Technologies -->
+      <div class="exp-card type-industry reveal reveal-delay-1">
+        <div class="exp-card-glow"></div>
+        <div class="exp-type-badge">
+          <span class="exp-type-badge-dot"></span>
+          Industry Collaboration
+        </div>
+        <div class="exp-org">
+          <div class="exp-org-icon">&#127981;</div>
+          <div>
+            <h3 class="exp-role">Visual Inspection Agent</h3>
+            <div class="exp-company">Tata Technologies</div>
+            <div class="exp-period">Jan 2026 &ndash; Apr 2026 <span class="exp-period-dot"></span> Pune, India</div>
+            <div class="exp-completed-badge">Completed &middot; Apr 2026</div>
+          </div>
+        </div>
+        <div class="exp-divider"></div>
+        <ul class="exp-bullets">
+          <li>Developed an industrial visual inspection application deploying a <strong>YOLOv8</strong> model that localises and classifies defects in real time &mdash; an agentic decision layer routes each detection to re-inspect, escalate for human review, or pass, replacing the manual bottleneck entirely.</li>
+          <li>Engineered robustness against <strong>severe class imbalance, sensor noise, and variable factory lighting</strong> through targeted augmentation and threshold calibration; achieved <strong>97.76% on-floor inspection accuracy</strong> tracked across mAP, IoU, and recall.</li>
+          <li>Built as a <strong>complete end-to-end software pipeline</strong> &mdash; from raw camera feed to structured decision output &mdash; operationally deployable rather than a prototype.</li>
+          <li>Operates fully <strong>on-premise with no cloud dependency</strong>, suitable for secure, air-gapped industrial environments.</li>
+        </ul>
+        <div class="exp-specs">
+          <div><div class="ek">Detector</div><div class="ev">YOLOv8</div></div>
+          <div><div class="ek">Accuracy</div><div class="ev">97.76%</div></div>
+          <div><div class="ek">Also tracked</div><div class="ev">mAP &middot; IoU &middot; Recall</div></div>
+          <div><div class="ek">Mode</div><div class="ev">Real-time &middot; On-premise</div></div>
+        </div>
+        <div class="exp-tags">
+          <span class="tag">YOLOv8</span><span class="tag">OpenCV</span><span class="tag">Python</span><span class="tag">Agentic AI</span>
+        </div>
+        <div class="exp-links">
+          <a class="gh" href="https://github.com/mituljn14?tab=repositories" target="_blank" rel="noopener">View on GitHub</a>
+          <a class="gh demo" href="https://drive.google.com/file/d/16Oc13QdqDAMJWc8ufCe7G4m89HYFd8Uj/view?usp=sharing" target="_blank" rel="noopener">Watch demo</a>
+        </div>
+      </div>
+
+      <!-- Internship: WelIntern -->
+      <div class="exp-card type-intern reveal reveal-delay-2">
+        <div class="exp-card-glow"></div>
+        <div class="exp-type-badge">
+          <span class="exp-type-badge-dot"></span>
+          Internship
+        </div>
+        <div class="exp-org">
+          <div class="exp-org-icon">&#129302;</div>
+          <div>
+            <h3 class="exp-role">Artificial Intelligence Intern</h3>
+            <div class="exp-company">WelIntern</div>
+            <div class="exp-period">Sep 2026 &ndash; Present <span class="exp-period-dot"></span> Pune, India <span class="exp-period-dot"></span> Remote</div>
+          </div>
+        </div>
+        <div class="exp-divider"></div>
+        <ul class="exp-bullets">
+          <li>Working on real-world AI projects involving <strong>Machine Learning, Deep Learning, Computer Vision, Generative AI, RAG, and Agentic AI</strong>.</li>
+          <li>Developing and implementing <strong>AI-driven solutions</strong> using Python and modern AI frameworks and tools.</li>
+          <li>Applying AI concepts to practical problems through <strong>research, experimentation, model development, and optimization</strong>.</li>
+          <li>Collaborating with team members on technical tasks, project discussions, and assigned deliverables.</li>
+          <li>Gaining hands-on industry experience while strengthening <strong>AI engineering, problem-solving, and project development</strong> skills.</li>
+        </ul>
+        <div class="exp-specs">
+          <div><div class="ek">Type</div><div class="ev">Internship</div></div>
+          <div><div class="ek">Focus</div><div class="ev">AI / ML / GenAI</div></div>
+          <div><div class="ek">Mode</div><div class="ev">Remote</div></div>
+          <div><div class="ek">Duration</div><div class="ev">Sep 2026 &ndash; Present</div></div>
+        </div>
+        <div class="exp-tags">
+          <span class="tag">Machine Learning</span><span class="tag">Deep Learning</span><span class="tag">Computer Vision</span><span class="tag">GenAI</span><span class="tag">Agentic AI</span>
+        </div>
+        <div class="exp-links">
+          <a class="gh" href="https://www.linkedin.com/in/mitul-jain-659889309/" target="_blank" rel="noopener">LinkedIn Profile</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- RESEARCH -->
 <section id="research">
   <div class="wrap">
-    <div class="head">
+    <div class="head reveal">
       <div class="rule">Research</div>
       <h2>Published work.</h2>
       <p>Peer-reviewed research focused on making AI systems more accessible and reliable in real-world, constrained environments.</p>
     </div>
 
-    <div class="pub-card">
+    <div class="pub-card reveal">
       <div class="pub-journal">International Journal of Computing and Digital Systems (IJCDS) &nbsp;&middot;&nbsp; August 2026</div>
       <h3 class="pub-title">Real-Time Sign Language Recognition Using CNN and MediaPipe with Enhanced Background Adaptation and Contextual Translation</h3>
       <ul class="pub-bullets">
@@ -597,7 +946,8 @@ footer a:hover{color:var(--fg)}
         <span class="pub-badge">Sub-100ms Latency</span>
       </div>
       <div class="links-row">
-        <a class="gh" href="https://www.researchgate.net/publication/411515592_Real-Time_Sign_Language_Recognition_Using_CNN_and_MediaPipe_with_Enhanced_Background_Adaptation_and_Contextual_Translation" target="_blank" rel="noopener">Read on ResearchGate</a>
+        <a class="gh" href="https://journal.uob.edu.bh/items/3df93bb6-b9b2-4dd7-a559-b19807f3a7ee/full" target="_blank" rel="noopener">Read Full Paper</a>
+        <a class="gh" href="https://www.researchgate.net/publication/411515592_Real-Time_Sign_Language_Recognition_Using_CNN_and_MediaPipe_with_Enhanced_Background_Adaptation_and_Contextual_Translation" target="_blank" rel="noopener">ResearchGate</a>
         <a class="gh" href="https://orcid.org/0009-0009-9914-7777" target="_blank" rel="noopener">ORCID Profile</a>
       </div>
     </div>
@@ -610,32 +960,8 @@ footer a:hover{color:var(--fg)}
     <div class="head">
       <div class="rule">Selected work</div>
       <h2>Projects That Define My Work.</h2>
-      <p>These are my most advanced builds &mdash; spanning computer vision, enterprise AI, explainable systems, and full-stack applications. Each one pushed beyond a prototype: real constraints, real metrics, built end-to-end.</p>
+      <p>These are my most advanced builds &mdash; spanning enterprise AI, explainable systems, and full-stack applications. Each one pushed beyond a prototype: real constraints, real metrics, built end-to-end.</p>
     </div>
-
-    <article class="proj">
-      <div class="side"><span class="yr">2026</span>Tata Technologies<br>Industry collaboration · ongoing</div>
-      <div>
-        <h3>Visual Inspection Agent</h3>
-        <ul class="proj-bullets">
-          <li>Developed an industrial visual inspection application in collaboration with <strong>Tata Technologies</strong>, deploying a <strong>YOLOv8</strong> model that localises and classifies defects in real time &mdash; an agentic decision layer routes each detection to re-inspect, escalate for human review, or pass, replacing the manual bottleneck entirely.</li>
-          <li>Engineered robustness against <strong>severe class imbalance, sensor noise, and variable factory lighting</strong> through targeted augmentation and threshold calibration; achieved <strong>97.76% on-floor inspection accuracy</strong> tracked across mAP, IoU, and recall.</li>
-          <li>Built as a <strong>complete end-to-end software pipeline</strong> &mdash; from raw camera feed to structured decision output &mdash; making the system operationally deployable rather than a prototype that only draws bounding boxes.</li>
-          <li>Operates fully <strong>on-premise with no cloud dependency</strong>, making it suitable for secure, air-gapped industrial environments where data sovereignty is a requirement.</li>
-        </ul>
-        <div class="specs">
-          <div><div class="k">Detector</div><div class="v">YOLOv8</div></div>
-          <div><div class="k">Accuracy</div><div class="v">97.76%</div></div>
-          <div><div class="k">Also tracked</div><div class="v">mAP · IoU · Recall</div></div>
-          <div><div class="k">Mode</div><div class="v">Real-time, on-line</div></div>
-        </div>
-        <div class="tags"><span class="tag">YOLOv8</span><span class="tag">OpenCV</span><span class="tag">Python</span><span class="tag">Agentic AI</span></div>
-        <div class="links-row">
-          <a class="gh" href="https://github.com/mituljn14?tab=repositories" target="_blank" rel="noopener">View on GitHub</a>
-          <a class="gh demo" href="https://drive.google.com/file/d/16Oc13QdqDAMJWc8ufCe7G4m89HYFd8Uj/view?usp=sharing" target="_blank" rel="noopener">Watch demo</a>
-        </div>
-      </div>
-    </article>
 
     <article class="proj">
       <div class="side"><span class="yr">2026</span>Multi-agent platform<br>On-premise deployment</div>
@@ -856,6 +1182,7 @@ footer a:hover{color:var(--fg)}
   </div>
 </section>
 
+
 <!-- EDUCATION -->
 <section id="education">
   <div class="wrap">
@@ -869,7 +1196,7 @@ footer a:hover{color:var(--fg)}
         <div class="edu-when">2024 &ndash; 2028</div>
         <div class="edu-title">B.Tech CSE &mdash; Artificial Intelligence &amp; Data Science</div>
         <div class="edu-inst">MIT World Peace University, Pune</div>
-        <div class="edu-grade">CGPA 9.13</div>
+        <div class="edu-grade">CGPA 9.11</div>
       </div>
       <div class="edu-card">
         <div class="edu-when">2023</div>
@@ -968,6 +1295,21 @@ footer a:hover{color:var(--fg)}
       btn.querySelectorAll('span').forEach(function(s){ s.style.transform=''; s.style.opacity=''; });
     });
   });
+})();
+</script>
+<script>
+/* ---------- scroll reveal ---------- */
+(function(){
+  if(!('IntersectionObserver' in window)) {
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('visible'); });
+    return;
+  }
+  var ro = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('visible'); ro.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(function(el){ ro.observe(el); });
 })();
 </script>
 </body>
